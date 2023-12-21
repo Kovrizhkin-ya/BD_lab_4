@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tables</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+
+
+<header>
+    <p class="header-menu">
+        <a class="header-link" href="{{ url_for('show_table', table_name='loc') }}">loc</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='participants') }}">participants</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='test') }}">test</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
+        <a class="header-link" href="{{ url_for('index') }}">index</a>
+    </p>
+</header>
+
+    <h1>All Tables</h1>
+
+    {% for table_name, data in tables.items() %}
+    <h2>{{ table_name }}</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                {% for column in data.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in data.iterrows() %}
+            <tr>
+                {% for column in data.columns %}
+                <td>{{ row[column] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+
+</body>
+</html>

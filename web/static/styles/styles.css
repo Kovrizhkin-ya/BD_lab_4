@@ -1,0 +1,94 @@
+/* Common styles for body, form, and links */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #3D3D3D; /* Dark military green */
+    color: #C0C0C0; /* Light gray */
+}
+
+/* Styles for the header menu */
+.header-menu {
+    overflow: hidden; /* Clear float */
+    background-color: #3D3D3D; /* Dark military green */
+    margin-top: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.header-menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header-menu a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.header-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Styles for delete button */
+#delete-button {
+    color: #fff;
+    background-color: #CD5C5C; /* Indian red */
+    border-color: #CD5C5C;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+#delete-button:hover {
+    background-color: #B54747; /* Darker red on hover */
+}
+
+/* Common styles for body, form, and links */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #3D3D3D; /* Dark military green */
+    color: #C0C0C0; /* Light gray */
+}
+
+/* Styles for the header menu */
+.header-menu {
+    overflow: hidden; /* Clear float */
+    background-color: #3D3D3D; /* Dark military green */
+    margin-top: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.header-link {
+    float: left;
+    display: block;
+    color: #999; /* Dark gray */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    background-color: #333; /* Darker gray on hover */
+    color: #fff; /* White on hover */
+}
+
+.header-link:visited {
+    color: #999; /* Dark gray for visited links */
+}
+
+.header-link.active {
+    background-color: #4CAF50;
+    color: white;
+}

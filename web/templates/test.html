@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table: test</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+
+<header>
+    <p class="header-menu">
+        <a class="header-link" href="{{ url_for('show_table', table_name='loc') }}">loc</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='participants') }}">participants</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='test') }}">test</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
+        <a class="header-link" href="{{ url_for('index') }}">index</a>
+    </p>
+</header>
+
+
+    <h1>Table: test</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>testid</th>
+                <th>outid</th>
+                <th>test</th>
+                <th>testlang</th>
+                <th>teststatus</th>
+                <th>ball100</th>
+                <th>ball12</th>
+                <th>ball</th>
+                <th>adaptscale</th>
+                <th>dpalevel</th>
+                <th>locid</th>
+                <th>Action</th>  <!-- Added column for Action -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in data.iterrows() %}
+            <tr>
+                <td>{{ row['testid'] }}</td>
+                <td>{{ row['outid'] }}</td>
+                <td>{{ row['test'] }}</td>
+                <td>{{ row['testlang'] }}</td>
+                <td>{{ row['teststatus'] }}</td>
+                <td>{{ row['ball100'] }}</td>
+                <td>{{ row['ball12'] }}</td>
+                <td>{{ row['ball'] }}</td>
+                <td>{{ row['adaptscale'] }}</td>
+                <td>{{ row['dpalevel'] }}</td>
+                <td>{{ row['locid'] }}</td>
+                <td>
+                    <form  action="{{ url_for('delete_row', testid=row[0]) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this row?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button id="delete-button" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div>
+        <label for="input_testid">testid:</label>
+        <input type="text" id="input_testid">
+
+        <label for="input_outid">outid:</label>
+        <input type="text" id="input_outid">
+
+        <label for="input_test">test:</label>
+        <input type="text" id="input_test">
+
+        <label for="input_testlang">testlang:</label>
+        <input type="text" id="input_testlang">
+
+        <label for="input_teststatus">teststatus:</label>
+        <input type="text" id="input_teststatus">
+
+        <label for="input_ball100">ball100:</label>
+        <input type="text" id="input_ball100">
+
+        <label for="input_ball12">ball12:</label>
+        <input type="text" id="input_ball12">
+
+        <label for="input_ball">ball:</label>
+        <input type="text" id="input_ball">
+
+        <label for="input_adaptscale">adaptscale:</label>
+        <input type="text" id="input_adaptscale">
+
+        <label for="input_dpalevel">dpalevel:</label>
+        <input type="text" id="input_dpalevel">
+
+        <label for="input_locid">locid:</label>
+        <input type="text" id="input_locid">
+
+        <button onclick="addRow()">Add</button>  <!-- Added button for add -->
+    </div>
+
+</body>
+</html>
